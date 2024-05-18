@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: rgb(19, 28, 39);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.APP {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row; /* Side-by-side layout for larger screens */
+}
+
+.sidebar {
+  flex: 3;
+  border-right: 1px solid rgb(100, 100, 100);
+  min-height: 100vh;
+  overflow-y: auto; /* Ensure the sidebar scrolls if content overflows */
+  transition: transform 0.3s ease;
+  background: rgb(29, 42, 57);
+}
+
+.sidebar-hidden {
+  transform: translateX(-100%);
+}
+
+.main {
+  flex: 9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Ensure the main content area scrolls */
+  padding: 2rem;
+}
+
+.LOGO {
+  margin-right: 1rem;
+}
+
+.brand {
+  font-size: 2rem;
+}
+
+.brandsm {
+  font-size: 1.3rem;
+}
+
+.upperside {
+  padding: 2.5rem;
+  border-bottom: 1px solid rgb(100, 100, 100);
+}
+
+.uppersideTop {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.addbtn {
+  height: 2rem;
+  padding-right: 1rem;
+}
+
+.midbtn {
+  background: #5c50dc;
+  border: none;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  margin-bottom: 3rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.midbtn:hover {
+  background: #4839c3;
+}
+
+.query {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: rgba(222, 222, 222, 1);
+  padding: 1.5rem;
+  width: 100%;
+  margin: 1rem auto;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(98, 98, 98, 1);
+  transition: background 0.3s ease;
+}
+
+.query:hover {
+  background: rgba(40, 40, 40, 1);
+}
+
+.query > img {
+  margin-right: 2rem;
+  object-fit: cover;
+  height: 1.75rem;
+}
+
+.lowerside {
+  padding: 2rem;
+}
+
+.listItem {
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.listItemImage {
+  margin: 0 1.6rem;
+}
+
+.main {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chats {
+  width: 100%;
+  max-width: 60rem;
+  height: calc(100vh - 17rem);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+.chat {
+  margin: 1rem;
+  padding: 2rem 3rem;
+  display: flex;
+  align-items: flex-start;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 1.3rem;
+  background: rgb(29, 42, 57);
+  border-radius: 0.5rem;
+}
+
+.chatimg {
+  object-fit: cover;
+  width: 3.5rem;
+  margin-right: 2rem;
+  border-radius: 0.6rem;
+}
+
+.bot {
+  background: rgb(19, 28, 39);
+  width: fit-content;
+  border-radius: 0.5rem;
+}
+
+.chatfooter {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.inp {
+  padding: 0.5rem;
+  background: rgb(29, 42, 57);
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(222, 222, 222, 1);
+  border-radius: 0.7rem;
+  width: 100%;
+  max-width: 68%;
+}
+
+.inp > input {
+  width: calc(100% - 3rem);
+  outline: none;
+  padding: 1.25rem;
+  color: white;
+  background: transparent;
+  border: none;
+}
+
+.send {
+  background: transparent;
+  border: none;
+}
+
+.chatfooter > p {
+  margin: 2rem 0;
+}
+
+.sidebar-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+  z-index: 1001; /* Ensure it stays above other content */
+}
+
+.txt {
+  line-height: 2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .APP {
+    flex-direction: column;
+  }
+
+  .brand {
+    font-size: 1.9rem;
+  }
+
+  .brandsm {
+    font-size: 1.2rem;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 75%;
+    transform: translateX(-100%);
+    background: rgb(19, 28, 39);
+    z-index: 1000;
+  }
+
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin: 2rem;
+  }
+
+  .midbtn,
+  .query {
+    width: 100%;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .chat {
+    font-size: 1.6rem;
+  }
+
+  .inp > input {
+    font-size: 1.6rem;
+  }
+
+  .chatfooter {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    font-size: 1.9rem;
+  }
+
+  .brandsm {
+    font-size: 1.2rem;
+  }
+
+  .midbtn,
+  .query {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .chat {
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .inp {
+    width: 90%;
+  }
+
+  .chatfooter {
+    margin-top: 2rem;
+  }
+
+  .inp > input {
+    font-size: 1.3rem;
+  }
+
+  .chats {
+    width: 100%;
+    max-width: 60rem;
+    height: 75vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+}
